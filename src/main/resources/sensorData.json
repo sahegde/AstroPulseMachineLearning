@@ -1,0 +1,226 @@
+{
+	"spaceShipSensorData" :{
+		"AstronautHealthData_Set1" :{
+		    "sensor_values" : [
+			    {
+				    "healthAttribName" : "ambient_temperature",
+				    "healthAttribValue": 75,
+				    "healthAttribUnit" : "F",
+				    "statistics": "average"
+			    },
+			    {
+				    "healthAttribName" : "blood_glucose",
+				    "healthAttribValue": 120,
+				    "healthAttribUnit" : "mg/dL",
+				    "statistics": "minimum"
+			    },
+			    {
+				    "healthAttribName" : "blood_pressure",
+	                "healthAttribValue": {"systolic_blood_pressure":160,"diastolic_blood_pressure":60},
+				    "healthAttribUnit" : "mmHg",
+				    "statistics": "maximum"
+			    },
+			    {
+				    "healthAttribName" : "body_fat_percentage",					
+				    "healthAttribValue": 16,
+				    "healthAttribUnit" : "%",
+				    "statistics": "maximum"
+			    },
+			    {
+				    "healthAttribName" : "body_height",
+				    "healthAttribValue": 180,
+				    "healthAttribUnit" : "cm",
+				    "statistics": "maximum"
+			    },
+			    {
+				    "healthAttribName" : "body_temperature",
+				    "healthAttribValue": 97,
+				    "healthAttribUnit" : "F",
+				    "statistics": "maximum"
+			    },
+			    {
+				    "healthAttribName" : "body_weight",
+				    "healthAttribValue": 55,
+				    "healthAttribUnit" : "kg",
+				    "statistics": "minimum"
+			    },
+			    {
+				    "healthAttribName" : "moderate_activity",
+				    "healthAttribValue": 60,
+				    "healthAttribUnit" : "min",
+				    "statistics": ""
+			    },
+			    {
+				    "healthAttribName" : "heart_rate",
+				    "healthAttribValue": 50,
+				    "healthAttribUnit" : "beats/min",
+				    "statistics": "minimum"
+			    },
+			    {
+				    "healthAttribName" : "sleep_duration",
+				    "healthAttribValue": 6,
+				    "healthAttribUnit" : "hours",
+				    "statistics": "average"
+			    },
+			    {
+				    "healthAttribName" : "step_count",
+				    "healthAttribValue": 6000,
+				    "healthAttribUnit" : "steps",
+				    "statistics": "average"
+			    }
+		    ],	
+	        "time_interval": {
+	          "start_date_time": "20-01-2017 - 04:00:00",
+	          "end_date_time": "21-01-2017 - 06:00:00"
+			}
+	    },
+		"AstronautHealthData_Set2" :{
+		    "sensor_values" : [
+			    {
+				    "healthAttribName" : "ambient_temperature",
+				    "healthAttribValue": 65,
+				    "healthAttribUnit" : "F",
+				    "statistics": "average"
+			    },
+			    {
+				    "healthAttribName" : "blood_glucose",
+				    "healthAttribValue": 110,
+				    "healthAttribUnit" : "mg/dL",
+				    "statistics": "minimum"
+			    },
+			    {
+				    "healthAttribName" : "blood_pressure",
+	                "healthAttribValue": {"systolic_blood_pressure":150,"diastolic_blood_pressure":70},
+				    "healthAttribUnit" : "mmHg",
+				    "statistics": "maximum"
+			    },
+			    {
+				    "healthAttribName" : "body_fat_percentage",					
+				    "healthAttribValue": 18,
+				    "healthAttribUnit" : "%",
+				    "statistics": "maximum"
+			    },
+			    {
+				    "healthAttribName" : "body_height",
+				    "healthAttribValue": 175,
+				    "healthAttribUnit" : "cm",
+				    "statistics": "maximum"
+			    },
+			    {
+				    "healthAttribName" : "body_temperature",
+				    "healthAttribValue": 98,
+				    "healthAttribUnit" : "F",
+				    "statistics": "maximum"
+			    },
+			    {
+				    "healthAttribName" : "body_weight",
+				    "healthAttribValue": 65,
+				    "healthAttribUnit" : "kg",
+				    "statistics": "minimum"
+			    },
+			    {
+				    "healthAttribName" : "moderate_activity",
+				    "healthAttribValue": 50,
+				    "healthAttribUnit" : "min",
+				    "statistics": ""
+			    },
+			    {
+				    "healthAttribName" : "heart_rate",
+				    "healthAttribValue": 70,
+				    "healthAttribUnit" : "beats/min",
+				    "statistics": "minimum"
+			    },
+			    {
+				    "healthAttribName" : "sleep_duration",
+				    "healthAttribValue": 7,
+				    "healthAttribUnit" : "hours",
+				    "statistics": "average"
+			    },
+			    {
+				    "healthAttribName" : "step_count",
+				    "healthAttribValue": 5000,
+				    "healthAttribUnit" : "steps",
+				    "statistics": "average"
+			    }
+		    ],	
+	        "time_interval": {
+	          "start_date_time": "11-01-2017 - 12:00:00",
+	          "end_date_time": "12-01-2017 - 01:00:00"
+			}
+	    },
+	    "AstronautHealthData_Set3" :{
+		    "sensor_values" : [
+			    {
+				    "healthAttribName" : "ambient_temperature",
+				    "healthAttribValue": 85,
+				    "healthAttribUnit" : "F",
+				    "statistics": "average"
+			    },
+			    {
+				    "healthAttribName" : "blood_glucose",
+				    "healthAttribValue": 130,
+				    "healthAttribUnit" : "mg/dL",
+				    "statistics": "minimum"
+			    },
+			    {
+				    "healthAttribName" : "blood_pressure",
+	                "healthAttribValue": {"systolic_blood_pressure":140,"diastolic_blood_pressure":80},
+				    "healthAttribUnit" : "mmHg",
+				    "statistics": "maximum"
+			    },
+			    {
+				    "healthAttribName" : "body_fat_percentage",					
+				    "healthAttribValue": 19,
+				    "healthAttribUnit" : "%",
+				    "statistics": "maximum"
+			    },
+			    {
+				    "healthAttribName" : "body_height",
+				    "healthAttribValue": 190,
+				    "healthAttribUnit" : "cm",
+				    "statistics": "maximum"
+			    },
+			    {
+				    "healthAttribName" : "body_temperature",
+				    "healthAttribValue": 96,
+				    "healthAttribUnit" : "F",
+				    "statistics": "maximum"
+			    },
+			    {
+				    "healthAttribName" : "body_weight",
+				    "healthAttribValue": 70,
+				    "healthAttribUnit" : "kg",
+				    "statistics": "minimum"
+			    },
+			    {
+				    "healthAttribName" : "moderate_activity",
+				    "healthAttribValue": 80,
+				    "healthAttribUnit" : "min",
+				    "statistics": ""
+			    },
+			    {
+				    "healthAttribName" : "heart_rate",
+				    "healthAttribValue": 100,
+				    "healthAttribUnit" : "beats/min",
+				    "statistics": "minimum"
+			    },
+			    {
+				    "healthAttribName" : "sleep_duration",
+				    "healthAttribValue": 8,
+				    "healthAttribUnit" : "hours",
+				    "statistics": "average"
+			    },
+			    {
+				    "healthAttribName" : "step_count",
+				    "healthAttribValue": 10000,
+				    "healthAttribUnit" : "steps",
+				    "statistics": "average"
+			    }
+		    ],	
+	        "time_interval": {
+	          "start_date_time": "01-01-2017 - 01:00:00",
+	          "end_date_time": "01-01-2017 - 02:00:00"
+			}
+	    }
+	}
+}

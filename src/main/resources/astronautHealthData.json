@@ -1,0 +1,691 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "spaceShipSensorData": {
+      "type": "object",
+      "properties": {
+        "AstronautHealthData_Set1": {
+          "type": "object",
+          "properties": {
+            "sensor_values": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "healthAttribName": {
+                      "type": "string"
+                    },
+                    "healthAttribValue": {
+                      "type": "integer"
+                    },
+                    "healthAttribUnit": {
+                      "type": "string"
+                    },
+                    "statistics": {
+                      "type": "string"
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "healthAttribName": {
+                      "type": "string"
+                    },
+                    "healthAttribValue": {
+                      "type": "integer"
+                    },
+                    "healthAttribUnit": {
+                      "type": "string"
+                    },
+                    "statistics": {
+                      "type": "string"
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "healthAttribName": {
+                      "type": "string"
+                    },
+                    "healthAttribValue": {
+                      "type": "object",
+                      "properties": {
+                        "systolic_blood_pressure": {
+                          "type": "integer"
+                        },
+                        "diastolic_blood_pressure": {
+                          "type": "integer"
+                        }
+                      }
+                    },
+                    "healthAttribUnit": {
+                      "type": "string"
+                    },
+                    "statistics": {
+                      "type": "string"
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "healthAttribName": {
+                      "type": "string"
+                    },
+                    "healthAttribValue": {
+                      "type": "integer"
+                    },
+                    "healthAttribUnit": {
+                      "type": "string"
+                    },
+                    "statistics": {
+                      "type": "string"
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "healthAttribName": {
+                      "type": "string"
+                    },
+                    "healthAttribValue": {
+                      "type": "integer"
+                    },
+                    "healthAttribUnit": {
+                      "type": "string"
+                    },
+                    "statistics": {
+                      "type": "string"
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "healthAttribName": {
+                      "type": "string"
+                    },
+                    "healthAttribValue": {
+                      "type": "integer"
+                    },
+                    "healthAttribUnit": {
+                      "type": "string"
+                    },
+                    "statistics": {
+                      "type": "string"
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "healthAttribName": {
+                      "type": "string"
+                    },
+                    "healthAttribValue": {
+                      "type": "integer"
+                    },
+                    "healthAttribUnit": {
+                      "type": "string"
+                    },
+                    "statistics": {
+                      "type": "string"
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "healthAttribName": {
+                      "type": "string"
+                    },
+                    "healthAttribValue": {
+                      "type": "integer"
+                    },
+                    "healthAttribUnit": {
+                      "type": "string"
+                    },
+                    "statistics": {
+                      "type": "string"
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "healthAttribName": {
+                      "type": "string"
+                    },
+                    "healthAttribValue": {
+                      "type": "integer"
+                    },
+                    "healthAttribUnit": {
+                      "type": "string"
+                    },
+                    "statistics": {
+                      "type": "string"
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "healthAttribName": {
+                      "type": "string"
+                    },
+                    "healthAttribValue": {
+                      "type": "integer"
+                    },
+                    "healthAttribUnit": {
+                      "type": "string"
+                    },
+                    "statistics": {
+                      "type": "string"
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "healthAttribName": {
+                      "type": "string"
+                    },
+                    "healthAttribValue": {
+                      "type": "integer"
+                    },
+                    "healthAttribUnit": {
+                      "type": "string"
+                    },
+                    "statistics": {
+                      "type": "string"
+                    }
+                  }
+                }
+              ]
+            },
+            "time_interval": {
+              "type": "object",
+              "properties": {
+                "start_date_time": {
+                  "type": "string"
+                },
+                "end_date_time": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "start_date_time",
+                "end_date_time"
+              ]
+            }
+          },
+          "required": [
+            "sensor_values",
+            "time_interval"
+          ]
+        },
+        "AstronautHealthData_Set2": {
+          "type": "object",
+          "properties": {
+            "sensor_values": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "healthAttribName": {
+                      "type": "string"
+                    },
+                    "healthAttribValue": {
+                      "type": "integer"
+                    },
+                    "healthAttribUnit": {
+                      "type": "string"
+                    },
+                    "statistics": {
+                      "type": "string"
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "healthAttribName": {
+                      "type": "string"
+                    },
+                    "healthAttribValue": {
+                      "type": "integer"
+                    },
+                    "healthAttribUnit": {
+                      "type": "string"
+                    },
+                    "statistics": {
+                      "type": "string"
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "healthAttribName": {
+                      "type": "string"
+                    },
+                    "healthAttribValue": {
+                      "type": "object",
+                      "properties": {
+                        "systolic_blood_pressure": {
+                          "type": "integer"
+                        },
+                        "diastolic_blood_pressure": {
+                          "type": "integer"
+                        }
+                      }
+                    },
+                    "healthAttribUnit": {
+                      "type": "string"
+                    },
+                    "statistics": {
+                      "type": "string"
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "healthAttribName": {
+                      "type": "string"
+                    },
+                    "healthAttribValue": {
+                      "type": "integer"
+                    },
+                    "healthAttribUnit": {
+                      "type": "string"
+                    },
+                    "statistics": {
+                      "type": "string"
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "healthAttribName": {
+                      "type": "string"
+                    },
+                    "healthAttribValue": {
+                      "type": "integer"
+                    },
+                    "healthAttribUnit": {
+                      "type": "string"
+                    },
+                    "statistics": {
+                      "type": "string"
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "healthAttribName": {
+                      "type": "string"
+                    },
+                    "healthAttribValue": {
+                      "type": "integer"
+                    },
+                    "healthAttribUnit": {
+                      "type": "string"
+                    },
+                    "statistics": {
+                      "type": "string"
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "healthAttribName": {
+                      "type": "string"
+                    },
+                    "healthAttribValue": {
+                      "type": "integer"
+                    },
+                    "healthAttribUnit": {
+                      "type": "string"
+                    },
+                    "statistics": {
+                      "type": "string"
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "healthAttribName": {
+                      "type": "string"
+                    },
+                    "healthAttribValue": {
+                      "type": "integer"
+                    },
+                    "healthAttribUnit": {
+                      "type": "string"
+                    },
+                    "statistics": {
+                      "type": "string"
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "healthAttribName": {
+                      "type": "string"
+                    },
+                    "healthAttribValue": {
+                      "type": "integer"
+                    },
+                    "healthAttribUnit": {
+                      "type": "string"
+                    },
+                    "statistics": {
+                      "type": "string"
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "healthAttribName": {
+                      "type": "string"
+                    },
+                    "healthAttribValue": {
+                      "type": "integer"
+                    },
+                    "healthAttribUnit": {
+                      "type": "string"
+                    },
+                    "statistics": {
+                      "type": "string"
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "healthAttribName": {
+                      "type": "string"
+                    },
+                    "healthAttribValue": {
+                      "type": "integer"
+                    },
+                    "healthAttribUnit": {
+                      "type": "string"
+                    },
+                    "statistics": {
+                      "type": "string"
+                    }
+                  }
+                }
+              ]
+            },
+            "time_interval": {
+              "type": "object",
+              "properties": {
+                "start_date_time": {
+                  "type": "string"
+                },
+                "end_date_time": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "start_date_time",
+                "end_date_time"
+              ]
+            }
+          },
+          "required": [
+            "sensor_values",
+            "time_interval"
+          ]
+        },
+        "AstronautHealthData_Set3": {
+          "type": "object",
+          "properties": {
+            "sensor_values": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "healthAttribName": {
+                      "type": "string"
+                    },
+                    "healthAttribValue": {
+                      "type": "integer"
+                    },
+                    "healthAttribUnit": {
+                      "type": "string"
+                    },
+                    "statistics": {
+                      "type": "string"
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "healthAttribName": {
+                      "type": "string"
+                    },
+                    "healthAttribValue": {
+                      "type": "integer"
+                    },
+                    "healthAttribUnit": {
+                      "type": "string"
+                    },
+                    "statistics": {
+                      "type": "string"
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "healthAttribName": {
+                      "type": "string"
+                    },
+                    "healthAttribValue": {
+                      "type": "object",
+                      "properties": {
+                        "systolic_blood_pressure": {
+                          "type": "integer"
+                        },
+                        "diastolic_blood_pressure": {
+                          "type": "integer"
+                        }
+                      }
+                    },
+                    "healthAttribUnit": {
+                      "type": "string"
+                    },
+                    "statistics": {
+                      "type": "string"
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "healthAttribName": {
+                      "type": "string"
+                    },
+                    "healthAttribValue": {
+                      "type": "integer"
+                    },
+                    "healthAttribUnit": {
+                      "type": "string"
+                    },
+                    "statistics": {
+                      "type": "string"
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "healthAttribName": {
+                      "type": "string"
+                    },
+                    "healthAttribValue": {
+                      "type": "integer"
+                    },
+                    "healthAttribUnit": {
+                      "type": "string"
+                    },
+                    "statistics": {
+                      "type": "string"
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "healthAttribName": {
+                      "type": "string"
+                    },
+                    "healthAttribValue": {
+                      "type": "integer"
+                    },
+                    "healthAttribUnit": {
+                      "type": "string"
+                    },
+                    "statistics": {
+                      "type": "string"
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "healthAttribName": {
+                      "type": "string"
+                    },
+                    "healthAttribValue": {
+                      "type": "integer"
+                    },
+                    "healthAttribUnit": {
+                      "type": "string"
+                    },
+                    "statistics": {
+                      "type": "string"
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "healthAttribName": {
+                      "type": "string"
+                    },
+                    "healthAttribValue": {
+                      "type": "integer"
+                    },
+                    "healthAttribUnit": {
+                      "type": "string"
+                    },
+                    "statistics": {
+                      "type": "string"
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "healthAttribName": {
+                      "type": "string"
+                    },
+                    "healthAttribValue": {
+                      "type": "integer"
+                    },
+                    "healthAttribUnit": {
+                      "type": "string"
+                    },
+                    "statistics": {
+                      "type": "string"
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "healthAttribName": {
+                      "type": "string"
+                    },
+                    "healthAttribValue": {
+                      "type": "integer"
+                    },
+                    "healthAttribUnit": {
+                      "type": "string"
+                    },
+                    "statistics": {
+                      "type": "string"
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "healthAttribName": {
+                      "type": "string"
+                    },
+                    "healthAttribValue": {
+                      "type": "integer"
+                    },
+                    "healthAttribUnit": {
+                      "type": "string"
+                    },
+                    "statistics": {
+                      "type": "string"
+                    }
+                  }
+                }
+              ]
+            },
+            "time_interval": {
+              "type": "object",
+              "properties": {
+                "start_date_time": {
+                  "type": "string"
+                },
+                "end_date_time": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "start_date_time",
+                "end_date_time"
+              ]
+            }
+          },
+          "required": [
+            "sensor_values",
+            "time_interval"
+          ]
+        }
+      },
+      "required": [
+        "AstronautHealthData_Set1",
+        "AstronautHealthData_Set2",
+        "AstronautHealthData_Set3"
+      ]
+    }
+  },
+  "required": [
+    "spaceShipSensorData"
+  ]
+}
