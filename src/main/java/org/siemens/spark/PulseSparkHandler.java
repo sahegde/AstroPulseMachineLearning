@@ -16,43 +16,6 @@ import java.util.Map;
 
 public class PulseSparkHandler{
 	
-	private static final String healthStatusFile = "/Users/hsandeep/Desktop/gitRepos/"+
-	"astroDataGen/astroDataGen/src/main/resources/healthStatusFile.txt";
-	private static final String dataModelFile = "/Users/hsandeep/Desktop/gitRepos/astroDataGen/astroDataGen"+
-	"/src/main/resources/javaLogisticRegressionWithLBFGSModel";
-	private static final String healthDataFile = "/Users/hsandeep/Desktop/gitRepos/astroDataGen/astroDataGen"+
-	"/src/main/resources/healthDataFile.txt";
-	
-	private static final String johnDataFile = "/Users/hsandeep/Desktop/gitRepos/astroDataGen/astroDataGen"+
-	"/src/main/resources/john.txt";
-	
-	private static final String lelandDataFile = "/Users/hsandeep/Desktop/gitRepos/astroDataGen/astroDataGen"+
-	"/src/main/resources/leland.txt";
-	
-	private static final String sunithaDataFile = "/Users/hsandeep/Desktop/gitRepos/astroDataGen/astroDataGen"+
-	"/src/main/resources/sunitha.txt";
-	
-	private static final String laDataFile = "/Users/hsandeep/Desktop/gitRepos/astroDataGen/astroDataGen"+
-	"/src/main/resources/la.txt";
-	
-	private static final String nicoleDataFile = "/Users/hsandeep/Desktop/gitRepos/astroDataGen/astroDataGen"+
-	"/src/main/resources/nicole.txt";
-	
-	private static final String randyDataFile = "/Users/hsandeep/Desktop/gitRepos/astroDataGen/astroDataGen"+
-	"/src/main/resources/randy.txt";
-	
-	private static final String charlieDataFile = "/Users/hsandeep/Desktop/gitRepos/astroDataGen/astroDataGen"+
-	"/src/main/resources/charlie.txt";
-	
-	private static final String danielDataFile = "/Users/hsandeep/Desktop/gitRepos/astroDataGen/astroDataGen"+
-	"/src/main/resources/daniel.txt";
-	
-	private static final String kcDataFile = "/Users/hsandeep/Desktop/gitRepos/astroDataGen/astroDataGen"+
-	"/src/main/resources/kc.txt";
-	
-	private static final String stevenDataFile = "/Users/hsandeep/Desktop/gitRepos/astroDataGen/astroDataGen"+
-	"/src/main/resources/steven.txt";
-	
 	private static final Map<Integer,String> astronautDetails = new HashMap<>();
 	
 	private static final Map<Integer,String> astronautFileDetails = new HashMap<>();
@@ -60,7 +23,7 @@ public class PulseSparkHandler{
 	private static void writeHealthStatusReport(int healtPrediction, int astronautCount, long timeStamp) {
 		BufferedWriter writer = null;
 		try {
-		    writer = new BufferedWriter(new FileWriter(healthStatusFile, true));
+		    writer = new BufferedWriter(new FileWriter(FileLocationHandler.healthStatusFile, true));
 		    writer.write(astronautCount+" "+astronautDetails.get(astronautCount)+" "+timeStamp+" "+healtPrediction);
 		    writer.newLine();
 		}catch (IOException e) {
@@ -79,7 +42,7 @@ public class PulseSparkHandler{
 	private static void writeHealthUploadReport(String healthData) {
 		BufferedWriter writer = null;
 		try {
-		    writer = new BufferedWriter(new FileWriter(healthDataFile, true));
+		    writer = new BufferedWriter(new FileWriter(FileLocationHandler.healthDataFile, true));
 		    writer.write(healthData);
 		    writer.newLine();
 		}catch (IOException e) {
@@ -130,6 +93,16 @@ public class PulseSparkHandler{
 
 	public static void main(String[] args) throws Exception {
 		
+		String osType = System.getProperty("os.name");
+		System.out.println("Operating system type: "+osType);
+		int type = -1;
+		if(osType.contains("Mac")) {
+			type = 0;
+		}else if(osType.contains("Windows")) {
+			type = 1;
+		}
+		new FileLocationHandler(type);
+		
 		astronautDetails.put(1, "John Herrington");
 		astronautDetails.put(2, "Leland Melvin");
 		astronautDetails.put(3, "Sunitha Williams");
@@ -141,21 +114,21 @@ public class PulseSparkHandler{
 		astronautDetails.put(9, "KC Thomton");
 		astronautDetails.put(10, "Steven Nagel");
 		
-		astronautFileDetails.put(1, johnDataFile);
-		astronautFileDetails.put(2, lelandDataFile);
-		astronautFileDetails.put(3, sunithaDataFile);
-		astronautFileDetails.put(4, laDataFile);
-		astronautFileDetails.put(5, nicoleDataFile);
-		astronautFileDetails.put(6, randyDataFile);
-		astronautFileDetails.put(7, charlieDataFile);
-		astronautFileDetails.put(8, danielDataFile);
-		astronautFileDetails.put(9, kcDataFile);
-		astronautFileDetails.put(10, stevenDataFile);
+		astronautFileDetails.put(1, FileLocationHandler.johnDataFile);
+		astronautFileDetails.put(2, FileLocationHandler.lelandDataFile);
+		astronautFileDetails.put(3, FileLocationHandler.sunithaDataFile);
+		astronautFileDetails.put(4, FileLocationHandler.laDataFile);
+		astronautFileDetails.put(5, FileLocationHandler.nicoleDataFile);
+		astronautFileDetails.put(6, FileLocationHandler.randyDataFile);
+		astronautFileDetails.put(7, FileLocationHandler.charlieDataFile);
+		astronautFileDetails.put(8, FileLocationHandler.danielDataFile);
+		astronautFileDetails.put(9, FileLocationHandler.kcDataFile);
+		astronautFileDetails.put(10, FileLocationHandler.stevenDataFile);
 		
 		// Create the context with a 1 second batch size
 		SparkConf sparkConf = new SparkConf().setAppName("PulseSparkHandler");
 		SparkContext sc = new SparkContext(sparkConf);
-        LogisticRegressionModel sameModel = LogisticRegressionModel.load(sc,dataModelFile);
+        LogisticRegressionModel sameModel = LogisticRegressionModel.load(sc,FileLocationHandler.modelFileLocation);
 		
         System.out.println("Model details :"+sameModel.toString());
         

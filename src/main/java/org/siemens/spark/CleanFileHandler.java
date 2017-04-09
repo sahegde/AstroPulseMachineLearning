@@ -4,92 +4,65 @@ import java.io.PrintWriter;
 
 public class CleanFileHandler {
 	
-	private static final String healthStatusFile = "/Users/hsandeep/Desktop/gitRepos/"+
-	"astroDataGen/astroDataGen/src/main/resources/healthStatusFile.txt";
-
-	private static final String healthDataFile = "/Users/hsandeep/Desktop/gitRepos/astroDataGen/astroDataGen"+
-	"/src/main/resources/healthDataFile.txt";
-	
-	private static final String johnDataFile = "/Users/hsandeep/Desktop/gitRepos/astroDataGen/astroDataGen"+
-	"/src/main/resources/john.txt";
-	
-	private static final String lelandDataFile = "/Users/hsandeep/Desktop/gitRepos/astroDataGen/astroDataGen"+
-	"/src/main/resources/leland.txt";
-	
-	private static final String sunithaDataFile = "/Users/hsandeep/Desktop/gitRepos/astroDataGen/astroDataGen"+
-	"/src/main/resources/sunitha.txt";
-	
-	private static final String laDataFile = "/Users/hsandeep/Desktop/gitRepos/astroDataGen/astroDataGen"+
-	"/src/main/resources/la.txt";
-	
-	private static final String nicoleDataFile = "/Users/hsandeep/Desktop/gitRepos/astroDataGen/astroDataGen"+
-	"/src/main/resources/nicole.txt";
-	
-	private static final String randyDataFile = "/Users/hsandeep/Desktop/gitRepos/astroDataGen/astroDataGen"+
-	"/src/main/resources/randy.txt";
-	
-	private static final String charlieDataFile = "/Users/hsandeep/Desktop/gitRepos/astroDataGen/astroDataGen"+
-	"/src/main/resources/charlie.txt";
-	
-	private static final String danielDataFile = "/Users/hsandeep/Desktop/gitRepos/astroDataGen/astroDataGen"+
-	"/src/main/resources/daniel.txt";
-	
-	private static final String kcDataFile = "/Users/hsandeep/Desktop/gitRepos/astroDataGen/astroDataGen"+
-	"/src/main/resources/kc.txt";
-	
-	private static final String stevenDataFile = "/Users/hsandeep/Desktop/gitRepos/astroDataGen/astroDataGen"+
-	"/src/main/resources/steven.txt";
+	static FileLocationHandler fHandler = null;
 	
 	public static void main(String[] args) throws Exception {
-		PrintWriter writer = new PrintWriter(healthStatusFile);
+		
+		String osType = System.getProperty("os.name");
+		System.out.println("Operating system type: "+osType);
+		int type = -1;
+		if(osType.contains("Mac")) {
+			type = 0;
+		}else if(osType.contains("Windows")) {
+			type = 1;
+		}
+		fHandler = new FileLocationHandler(type);
+		
+		PrintWriter writer = new PrintWriter(FileLocationHandler.healthStatusFile);
 		writer.print("");
 		writer.close();
 		
-		writer = new PrintWriter(healthStatusFile);
+		writer = new PrintWriter(FileLocationHandler.healthDataFile);
 		writer.print("");
 		writer.close();
 		
-		writer = new PrintWriter(healthDataFile);
+		writer = new PrintWriter(FileLocationHandler.johnDataFile);
 		writer.print("");
 		writer.close();
 		
-		writer = new PrintWriter(johnDataFile);
+		writer = new PrintWriter(FileLocationHandler.lelandDataFile);
 		writer.print("");
 		writer.close();
 		
-		writer = new PrintWriter(lelandDataFile);
+		writer = new PrintWriter(FileLocationHandler.sunithaDataFile);
 		writer.print("");
 		writer.close();
 		
-		writer = new PrintWriter(sunithaDataFile);
+		writer = new PrintWriter(FileLocationHandler.laDataFile);
 		writer.print("");
 		writer.close();
 		
-		writer = new PrintWriter(laDataFile);
+		writer = new PrintWriter(FileLocationHandler.nicoleDataFile);
 		writer.print("");
 		writer.close();
 		
-		writer = new PrintWriter(nicoleDataFile);
+		writer = new PrintWriter(FileLocationHandler.randyDataFile);
 		writer.print("");
 		writer.close();
 		
-		writer = new PrintWriter(randyDataFile);
+		writer = new PrintWriter(FileLocationHandler.charlieDataFile);
 		writer.print("");
 		writer.close();
 		
-		writer = new PrintWriter(charlieDataFile);
+		writer = new PrintWriter(FileLocationHandler.danielDataFile);
 		writer.print("");
 		writer.close();
 		
-		writer = new PrintWriter(danielDataFile);
+		writer = new PrintWriter(FileLocationHandler.kcDataFile);
 		writer.print("");
 		writer.close();
 		
-		writer = new PrintWriter(kcDataFile);
-		writer.print("");
-		writer.close();
-		
-		writer = new PrintWriter(stevenDataFile);
+		writer = new PrintWriter(FileLocationHandler.stevenDataFile);
 		writer.print("");
 		writer.close();
 		
