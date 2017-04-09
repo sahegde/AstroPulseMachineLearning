@@ -1,133 +1,182 @@
 package org.siemens.spark;
 
 import org.apache.spark.SparkConf;
-import org.apache.spark.api.java.function.FlatMapFunction;
-import org.apache.spark.api.java.function.Function2;
-import org.apache.spark.api.java.function.PairFunction;
-import org.apache.spark.storage.StorageLevel;
-import org.apache.spark.streaming.Duration;
-import org.apache.spark.streaming.api.java.JavaDStream;
-import org.apache.spark.streaming.api.java.JavaPairDStream;
-import org.apache.spark.streaming.api.java.JavaReceiverInputDStream;
-import org.apache.spark.streaming.api.java.JavaStreamingContext;
-import org.apache.spark.streaming.receiver.Receiver;
-import org.siemens.astro.AstronautHealthDataGenerator;
+import org.apache.spark.SparkContext;
+import org.apache.spark.mllib.classification.LogisticRegressionModel;
+import org.apache.spark.mllib.linalg.Vector;
+import org.apache.spark.mllib.linalg.Vectors;
 
-import scala.Tuple2;
-import org.apache.log4j.Logger;
-import org.apache.log4j.Level;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.regex.Pattern;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
-/**
- * Custom Receiver that receives data over a socket. Received bytes is
- * interpreted as text and \n delimited lines are considered as records. They
- * are then counted and printed.
- *
- * Usage: JavaCustomReceiver <master> <hostname> <port> <master> is the Spark
- * master URL. In local mode, <master> should be 'local[n]' with n > 1.
- * <hostname> and <port> of the TCP server that Spark Streaming would connect to
- * receive data.
- *
- * To run this on your local machine, you need to first run a Netcat server `$
- * nc -lk 9999` and then run the example `$ bin/run-example
- * org.apache.spark.examples.streaming.JavaCustomReceiver localhost 9999`
- */
 
-public class PulseSparkHandler extends Receiver<String> {
-	private static final Pattern SPACE = Pattern.compile(" ");
+public class PulseSparkHandler{
+	
+	private static final String healthStatusFile = "/Users/hsandeep/Desktop/gitRepos/"+
+	"astroDataGen/astroDataGen/src/main/resources/healthStatusFile.txt";
+	private static final String dataModelFile = "/Users/hsandeep/Desktop/gitRepos/astroDataGen/astroDataGen"+
+	"/src/main/resources/javaLogisticRegressionWithLBFGSModel";
+	private static final String healthDataFile = "/Users/hsandeep/Desktop/gitRepos/astroDataGen/astroDataGen"+
+	"/src/main/resources/healthDataFile.txt";
+	
+	private static final String johnDataFile = "/Users/hsandeep/Desktop/gitRepos/astroDataGen/astroDataGen"+
+	"/src/main/resources/john.txt";
+	
+	private static final String lelandDataFile = "/Users/hsandeep/Desktop/gitRepos/astroDataGen/astroDataGen"+
+	"/src/main/resources/leland.txt";
+	
+	private static final String sunithaDataFile = "/Users/hsandeep/Desktop/gitRepos/astroDataGen/astroDataGen"+
+	"/src/main/resources/sunitha.txt";
+	
+	private static final String laDataFile = "/Users/hsandeep/Desktop/gitRepos/astroDataGen/astroDataGen"+
+	"/src/main/resources/la.txt";
+	
+	private static final String nicoleDataFile = "/Users/hsandeep/Desktop/gitRepos/astroDataGen/astroDataGen"+
+	"/src/main/resources/nicole.txt";
+	
+	private static final String randyDataFile = "/Users/hsandeep/Desktop/gitRepos/astroDataGen/astroDataGen"+
+	"/src/main/resources/randy.txt";
+	
+	private static final String charlieDataFile = "/Users/hsandeep/Desktop/gitRepos/astroDataGen/astroDataGen"+
+	"/src/main/resources/charlie.txt";
+	
+	private static final String danielDataFile = "/Users/hsandeep/Desktop/gitRepos/astroDataGen/astroDataGen"+
+	"/src/main/resources/daniel.txt";
+	
+	private static final String kcDataFile = "/Users/hsandeep/Desktop/gitRepos/astroDataGen/astroDataGen"+
+	"/src/main/resources/kc.txt";
+	
+	private static final String stevenDataFile = "/Users/hsandeep/Desktop/gitRepos/astroDataGen/astroDataGen"+
+	"/src/main/resources/steven.txt";
+	
+	private static final Map<Integer,String> astronautDetails = new HashMap<>();
+	
+	private static final Map<Integer,String> astronautFileDetails = new HashMap<>();
+	
+	private static void writeHealthStatusReport(int healtPrediction, int astronautCount, long timeStamp) {
+		BufferedWriter writer = null;
+		try {
+		    writer = new BufferedWriter(new FileWriter(healthStatusFile, true));
+		    writer.write(astronautCount+" "+astronautDetails.get(astronautCount)+" "+timeStamp+" "+healtPrediction);
+		    writer.newLine();
+		}catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (writer != null) {
+					writer.close();
+				}				
+			} catch (IOException ex) {
+				ex.printStackTrace();
+			}
+		}
+	}
+	
+	private static void writeHealthUploadReport(String healthData) {
+		BufferedWriter writer = null;
+		try {
+		    writer = new BufferedWriter(new FileWriter(healthDataFile, true));
+		    writer.write(healthData);
+		    writer.newLine();
+		}catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (writer != null) {
+					writer.close();
+				}				
+			} catch (IOException ex) {
+				ex.printStackTrace();
+			}
+		}
+	}
+	
+	private static void writeAstronautHealthReport(int astronautCount,String healthData, String astronautName,
+			String fileName, int prediction) {
+		BufferedWriter writer = null;
+		try {
+		    writer = new BufferedWriter(new FileWriter(fileName, true));
+		    writer.write(astronautCount+" "+astronautName+" "+healthData+" "+prediction);
+		    writer.newLine();
+		}catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (writer != null) {
+					writer.close();
+				}				
+			} catch (IOException ex) {
+				ex.printStackTrace();
+			}
+		}
+	}
+	
+	private static void writeToAstronautFile(String generatedData,int count, int healthPrediction) {
+    	writeAstronautHealthReport(count,generatedData,astronautDetails.get(count),astronautFileDetails.get(count), healthPrediction);
+	}
+	
+	private static int[] parseDataForPrediction(String healthData) {
+		String str[] = healthData.split(" ");
+		int arr[] = new int[str.length];
+		for (int i = 0; i < str.length; i++) {
+			arr[i] = Integer.parseInt(str[i].split(":")[1]);
+		}
+		return arr;
+	}
 
 	public static void main(String[] args) throws Exception {
-		/*
-		 * if (args.length < 2) {
-		 * System.err.println("Usage: JavaCustomReceiver <hostname> <port>");
-		 * System.exit(1); }
-		 */
-
-		// StreamingExamples.setStreamingLogLevels();
-		// Logger.getRootLogger().setLevel(Level.WARN);
-
+		
+		astronautDetails.put(1, "John Herrington");
+		astronautDetails.put(2, "Leland Melvin");
+		astronautDetails.put(3, "Sunitha Williams");
+		astronautDetails.put(4, "La Estela");
+		astronautDetails.put(5, "Nicole Stott");
+		astronautDetails.put(6, "Randy Bresnik");
+		astronautDetails.put(7, "Charlie Camarda");
+		astronautDetails.put(8, "Daniel Burbank");
+		astronautDetails.put(9, "KC Thomton");
+		astronautDetails.put(10, "Steven Nagel");
+		
+		astronautFileDetails.put(1, johnDataFile);
+		astronautFileDetails.put(2, lelandDataFile);
+		astronautFileDetails.put(3, sunithaDataFile);
+		astronautFileDetails.put(4, laDataFile);
+		astronautFileDetails.put(5, nicoleDataFile);
+		astronautFileDetails.put(6, randyDataFile);
+		astronautFileDetails.put(7, charlieDataFile);
+		astronautFileDetails.put(8, danielDataFile);
+		astronautFileDetails.put(9, kcDataFile);
+		astronautFileDetails.put(10, stevenDataFile);
+		
 		// Create the context with a 1 second batch size
 		SparkConf sparkConf = new SparkConf().setAppName("PulseSparkHandler");
-		JavaStreamingContext ssc = new JavaStreamingContext(sparkConf, new Duration(1000));
-		Logger.getLogger("org").setLevel(Level.OFF);
-		Logger.getLogger("akka").setLevel(Level.OFF);
-
-		// Create an input stream with the custom receiver on target ip:port and
-		// count the
-		// words in input stream of \n delimited text (eg. generated by 'nc')
-		JavaReceiverInputDStream<String> lines = ssc.receiverStream(new PulseSparkHandler());
-		JavaDStream<String> words = lines.flatMap(new FlatMapFunction<String, String>() {
-			@Override
-			public Iterator<String> call(String x) {
-				return Arrays.asList(SPACE.split(x)).iterator();
+		SparkContext sc = new SparkContext(sparkConf);
+        LogisticRegressionModel sameModel = LogisticRegressionModel.load(sc,dataModelFile);
+		
+        System.out.println("Model details :"+sameModel.toString());
+        
+        while(true) {
+        	Date date = new Date();
+        	for (int i = 10; i >= 1; i--) {
+            	String generatedData = DataGenerator.generate();
+            	int dataParams[] = parseDataForPrediction(generatedData);
+            	
+        		Vector dv = Vectors.dense(dataParams[0],dataParams[1],dataParams[2],dataParams[3],dataParams[3],
+        				dataParams[5],dataParams[6],dataParams[7],dataParams[8],dataParams[9],dataParams[10],
+        				dataParams[11],dataParams[12]);
+        		
+        		Double healtPrediction = sameModel.predict(dv);
+        		writeHealthStatusReport(healtPrediction.intValue(),i,date.getTime());
+        		writeHealthUploadReport(healtPrediction.intValue()+" "+generatedData);
+        		writeToAstronautFile(generatedData,i,healtPrediction.intValue());
+        		System.out.println("Prediction for "+astronautDetails.get(i)+": "+healtPrediction);
+        		
 			}
-		});
-		JavaPairDStream<String, Integer> wordCounts = words.mapToPair(new PairFunction<String, String, Integer>() {
-			@Override
-			public Tuple2<String, Integer> call(String s) {
-				return new Tuple2<String, Integer>(s, 1);
-			}
-		}).reduceByKey(new Function2<Integer, Integer, Integer>() {
-			@Override
-			public Integer call(Integer i1, Integer i2) {
-				return i1 + i2;
-			}
-		});
-
-		wordCounts.print();
-		ssc.start();
-		ssc.awaitTermination();
-	}
-
-	// ============= Receiver code that receives data over a socket
-	// ==============
-
-	String host = null;
-	int port = -1;
-
-	public PulseSparkHandler() {
-			super(StorageLevel.MEMORY_AND_DISK_2());
-		}
-
-	public void onStart() {
-		// Start the thread that receives data over a connection
-		new Thread() {
-			@Override
-			public void run() {
-				receive();
-			}
-		}.start();
-	}
-
-	public void onStop() {
-		// There is nothing much to do as the thread calling receive()
-		// is designed to stop by itself isStopped() returns false
-	}
-
-	/** Create a socket connection and receive data until receiver is stopped */
-	private void receive() {
-		// System.out.println("sandeep");
-		/*
-		 * String heartBeat[] = { "ok", "notok" }; String pulseRate[] = {
-		 * "fine", "notwell" }; String bloodLevel[] = { "high", "low" }; //
-		 * there should be lot more parameters like this
-		 * 
-		 * while (true) { store(heartBeat[(int) (Math.random() *
-		 * (heartBeat.length))] + " " + pulseRate[(int) (Math.random() *
-		 * (pulseRate.length))] + " " + bloodLevel[(int) (Math.random() *
-		 * (bloodLevel.length))]); try { Thread.sleep(1000); } catch (Exception
-		 * e) { System.out.println(e.getMessage()); } }
-		 */
-
-		while (true) {
-			store(AstronautHealthDataGenerator.dataGenerator());
-			try {
-				Thread.sleep(1000);
-			} catch (Exception e) {
-				System.out.println(e.getMessage());
-			}
-		}
+    		Thread.sleep(10000);
+        }	
 	}
 }
