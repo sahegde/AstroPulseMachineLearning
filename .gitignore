@@ -4,3 +4,4 @@ target/
 .settings
 npm-debug.log
 target/
+src/main/resources/

@@ -37,21 +37,21 @@ import java.util.Random;
 class Parameter {
 	int minimum;
 	int maximum;
-	
-	public Parameter(int minimum,int maximum) {
+
+	public Parameter(int minimum, int maximum) {
 		this.minimum = minimum;
 		this.maximum = maximum;
 	}
 }
 
 public class DataGenerator {
-	
+
 	public static String generate() {
-		
+
 		Random rand = new Random();
 		int choice = rand.nextInt(10) + 1;
-		
-		//Normal ranges
+
+		// Normal ranges
 		Parameter heartRate = null;
 		Parameter bloodPressureSystolic = null;
 		Parameter respirationRate = null;
@@ -66,10 +66,10 @@ public class DataGenerator {
 		Parameter humidity = null;
 		Parameter bloodPressureDiastolic = null;
 		int healthStatusActual = -1;
-		
-		if(choice <= 8) {
 
-			//Normal ranges
+		if (choice <= 8) {
+
+			// Normal ranges
 			heartRate = new Parameter(60, 120);
 			bloodPressureSystolic = new Parameter(100, 140);
 			respirationRate = new Parameter(12, 18);
@@ -84,10 +84,10 @@ public class DataGenerator {
 			humidity = new Parameter(25, 60);
 			bloodPressureDiastolic = new Parameter(60, 90);
 			healthStatusActual = 0;
-			
-		}else if(choice == 9) {
-			
-			//Health Deteorating ranges
+
+		} else if (choice == 9) {
+
+			// Health Deteorating ranges
 			heartRate = new Parameter(115, 130);
 			bloodPressureSystolic = new Parameter(135, 150);
 			respirationRate = new Parameter(17, 20);
@@ -100,12 +100,12 @@ public class DataGenerator {
 			temperature = new Parameter(60, 70);
 			oxygenLevel = new Parameter(90, 110);
 			humidity = new Parameter(60, 70);
-			bloodPressureDiastolic = new Parameter(90, 100);	
+			bloodPressureDiastolic = new Parameter(90, 100);
 			healthStatusActual = 2;
-			
-		}else if(choice == 10) {
-			
-			//Health not ok ranges
+
+		} else if (choice == 10) {
+
+			// Health not ok ranges
 			heartRate = new Parameter(135, 150);
 			bloodPressureSystolic = new Parameter(145, 170);
 			respirationRate = new Parameter(18, 25);
@@ -121,31 +121,37 @@ public class DataGenerator {
 			bloodPressureDiastolic = new Parameter(100, 120);
 			healthStatusActual = 1;
 		}
-		
+
 		int heartRateRandom = rand.nextInt(heartRate.maximum - heartRate.minimum) + heartRate.minimum;
-		int bloodPressureSystolicRandom = rand.nextInt(bloodPressureSystolic.maximum - bloodPressureSystolic.minimum) + bloodPressureSystolic.minimum;
-		int respirationRateRandom = rand.nextInt(respirationRate.maximum - respirationRate.minimum) + respirationRate.minimum;
+		int bloodPressureSystolicRandom = rand.nextInt(bloodPressureSystolic.maximum - bloodPressureSystolic.minimum)
+				+ bloodPressureSystolic.minimum;
+		int respirationRateRandom = rand.nextInt(respirationRate.maximum - respirationRate.minimum)
+				+ respirationRate.minimum;
 		int bloodGlucoseRandom = rand.nextInt(bloodGlucose.maximum - bloodGlucose.minimum) + bloodGlucose.minimum;
 		int activityCountRandom = rand.nextInt(activityCount.maximum - activityCount.minimum) + activityCount.minimum;
-		int bodyTemperatureRandom = rand.nextInt(bodyTemperature.maximum - bodyTemperature.minimum) + bodyTemperature.minimum;
+		int bodyTemperatureRandom = rand.nextInt(bodyTemperature.maximum - bodyTemperature.minimum)
+				+ bodyTemperature.minimum;
 		int bodyFatRandom = rand.nextInt(bodyFat.maximum - bodyFat.minimum) + bodyFat.minimum;
 		int bodyStrengthRandom = rand.nextInt(bodyStrength.maximum - bodyStrength.minimum) + bodyStrength.minimum;
 		int bodyOxygenRandom = rand.nextInt(bodyOxygen.maximum - bodyOxygen.minimum) + bodyOxygen.minimum;
 		int temperatureRandom = rand.nextInt(temperature.maximum - temperature.minimum) + temperature.minimum;
 		int oxygenLevelRandom = rand.nextInt(oxygenLevel.maximum - oxygenLevel.minimum) + oxygenLevel.minimum;
 		int humidityRandom = rand.nextInt(humidity.maximum - humidity.minimum) + humidity.minimum;
-		int bloodPressureDiastolicRandom = rand.nextInt(bloodPressureDiastolic.maximum - bloodPressureDiastolic.minimum) + bloodPressureDiastolic.minimum;
-		
-		System.out.println("ActualValue: "+healthStatusActual);
-		
-		return "1:"+heartRateRandom+" "+"2:"+bloodPressureSystolicRandom+" "+"3:"+respirationRateRandom+" "+"4:"+bloodGlucoseRandom+" "+"5:"+activityCountRandom+" "+
-		"6:"+bodyTemperatureRandom+" "+"7:"+bodyFatRandom+" "+"8:"+bodyStrengthRandom+" "+"9:"+bodyOxygenRandom+" "+"10:"+temperatureRandom+" "+
-		"11:"+oxygenLevelRandom+" "+"12:"+humidityRandom+" "+"13:"+bloodPressureDiastolicRandom;
-		
+		int bloodPressureDiastolicRandom = rand.nextInt(bloodPressureDiastolic.maximum - bloodPressureDiastolic.minimum)
+				+ bloodPressureDiastolic.minimum;
+
+		System.out.println("ActualValue: " + healthStatusActual);
+
+		return "1:" + heartRateRandom + " " + "2:" + bloodPressureSystolicRandom + " " + "3:" + respirationRateRandom
+				+ " " + "4:" + bloodGlucoseRandom + " " + "5:" + activityCountRandom + " " + "6:"
+				+ bodyTemperatureRandom + " " + "7:" + bodyFatRandom + " " + "8:" + bodyStrengthRandom + " " + "9:"
+				+ bodyOxygenRandom + " " + "10:" + temperatureRandom + " " + "11:" + oxygenLevelRandom + " " + "12:"
+				+ humidityRandom + " " + "13:" + bloodPressureDiastolicRandom;
+
 	}
-	
-	public static void main(String[] args) throws Exception{
-		while(true) {
+
+	public static void main(String[] args) throws Exception {
+		while (true) {
 			String healthDataGenerated = generate();
 			System.out.println(healthDataGenerated);
 			Thread.sleep(1000);
