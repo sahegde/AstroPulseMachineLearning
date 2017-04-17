@@ -72,7 +72,7 @@ public class PulseSparkHandler {
 			String healthParams[] = healthData.split(" ");
 			for (int i = 0; i < healthParams.length; i++) {
 				String healthParam[] = healthParams[i].split(":");
-				if (healthParam[0].equals("10") || healthParam[0].equals("11") || healthParam[0].equals("12")) {
+				if (healthParam[0].equals("11") || healthParam[0].equals("12") || healthParam[0].equals("13")) {
 					continue;
 				}
 				writer.write(healthParam[0] + " " + timeStamp + " " + healthParam[1] + " "
@@ -161,14 +161,14 @@ public class PulseSparkHandler {
 
 		parameterRangeMap.put("1", "60,120");
 		parameterRangeMap.put("2", "100,140");
-		parameterRangeMap.put("13", "60,90");
-		parameterRangeMap.put("3", "12,18");
-		parameterRangeMap.put("4", "79,140");
-		parameterRangeMap.put("5", "50,300");
-		parameterRangeMap.put("6", "36,38");
-		parameterRangeMap.put("7", "20,30");
-		parameterRangeMap.put("8", "50,100");
-		parameterRangeMap.put("9", "60,100");
+		parameterRangeMap.put("3", "60,90");
+		parameterRangeMap.put("4", "12,18");
+		parameterRangeMap.put("5", "79,140");
+		parameterRangeMap.put("6", "50,300");
+		parameterRangeMap.put("7", "36,38");
+		parameterRangeMap.put("8", "20,30");
+		parameterRangeMap.put("9", "50,100");
+		parameterRangeMap.put("10", "60,100");
 
 		// Create the context with a 1 second batch size
 		SparkConf sparkConf = new SparkConf().setAppName("PulseSparkHandler");

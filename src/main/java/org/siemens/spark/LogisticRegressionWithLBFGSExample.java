@@ -90,10 +90,6 @@ public class LogisticRegressionWithLBFGSExample {
 		model.save(sc, FileLocationHandler.modelFileLocation);
 	
 		// $example off$
-
-		Vector dv = Vectors.dense(115,145,19,140,310,38.5,35,22,23,55,30,64,135);
-		Double jdd = model.predict(dv);
-		System.out.println("Sandeep1 "+jdd);
 		
 		sc.stop();
 	}

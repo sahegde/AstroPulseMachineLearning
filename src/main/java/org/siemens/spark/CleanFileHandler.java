@@ -26,6 +26,10 @@ public class CleanFileHandler {
 		writer.print("");
 		writer.close();
 		
+		writer = new PrintWriter(FileLocationHandler.paramFile);
+		writer.print("");
+		writer.close();
+		
 		writer = new PrintWriter(FileLocationHandler.johnDataFile);
 		writer.print("");
 		writer.close();
